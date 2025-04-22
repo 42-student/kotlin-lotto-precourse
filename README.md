@@ -2,29 +2,29 @@
 
 IMPLEMENTATION ROADMAP:
 
-[ ] Ask the user to enter the purchase amount and validate the input
-	* must be divisible by 1000
+- [ ] Ask the user to enter the purchase amount and validate the input
+  * must be divisible by 1000
 
-[ ] Generate lotto tickets and print them
-	* 6 unique numbers between 1 and 45
+- [ ] Generate lotto tickets and print them
+  * 6 unique numbers between 1 and 45
 
-[ ] Ask the user to enter the winning numbers and validate the input
-	* 6 winning numbers, comma-separated
+- [ ] Ask the user to enter the winning numbers and validate the input
+  * 6 winning numbers, comma-separated
 
-[ ] Ask the user to enter a bonus number and validate the input
-	* 1 bonus number
+- [ ] Ask the user to enter a bonus number and validate the input
+  * 1 bonus number
 
-[ ] Compare each ticket with the winning numbers and the bonus number
+- [ ] Compare each ticket with the winning numbers and the bonus number
 
-[ ] Calculate prize for each ticket
+- [ ] Calculate prize for each ticket
 
-[ ] Print winning statistics
+- [ ] Print winning statistics
 
-[ ] Calculate and display profit rate
-	* rounded to the nearest tenth (e.g. 100.0%, 51.5%, 1,000,000.0%)
+- [ ] Calculate and display profit rate
+  * rounded to the nearest tenth (e.g. 100.0%, 51.5%, 1,000,000.0%)
 
-[ ] Implement unit tests for all logic
-	* except for UI interactions (System.out, System.in)
+- [ ] Implement unit tests for all logic
+  * except for UI interactions (System.out, System.in)
 
 
 ### Programming Requirements
