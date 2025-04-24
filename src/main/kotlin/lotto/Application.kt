@@ -6,9 +6,7 @@ package lotto
 fun main() {
 	val purchaseAmount = InputView.readPurchaseAmount()
 	val tickets = LottoMachine().buyTickets(purchaseAmount)
-	for (ticket in tickets) {
-		println(ticket.numbers)
-	}
+	OutputView.printTickets(tickets)
 }
 
 // fun main() {
