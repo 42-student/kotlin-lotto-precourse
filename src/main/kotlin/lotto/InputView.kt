@@ -50,4 +50,14 @@ object InputView {
 			throw IllegalArgumentException("[ERROR] Numbers must be in range 1 to 45.")
 		}
 	}
+
+	fun readBonusNumber(): Int {
+		println("\nPlease enter the bonus number.")
+		val input = Console.readLine()
+		val bonusNumber = input.toIntOrNull() ?: throw IllegalArgumentException("[ERROR] Bonus number is not valid.")
+		if (bonusNumber < 1 || bonusNumber > 45) {
+			throw IllegalArgumentException("[ERROR] Bonus number must be in range 1 to 45.")
+		}
+		return bonusNumber
+	}
 }

@@ -9,6 +9,8 @@ fun main() {
 	OutputView.printTickets(tickets)
 	val winningNumbers = InputView.readWinningNumbers()
 	println(winningNumbers)
+	val bonusNumber = InputView.readBonusNumber()
+	println(bonusNumber)
 }
 
 // fun main() {
