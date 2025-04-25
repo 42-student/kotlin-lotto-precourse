@@ -7,6 +7,8 @@ fun main() {
 	val purchaseAmount = InputView.readPurchaseAmount()
 	val tickets = LottoMachine().buyTickets(purchaseAmount)
 	OutputView.printTickets(tickets)
+	val winningNumbers = InputView.readWinningNumbers()
+	println(winningNumbers)
 }
 
 // fun main() {
