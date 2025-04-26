@@ -4,13 +4,17 @@ package lotto
 //import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-	val purchaseAmount = InputView.readPurchaseAmount()
+	val purchaseAmount = InputView().readPurchaseAmount()
 	val tickets = LottoMachine().buyTickets(purchaseAmount)
-	OutputView.printTickets(tickets)
-	val winningNumbers = InputView.readWinningNumbers()
-	println(winningNumbers)
-	val bonusNumber = InputView.readBonusNumber()
-	println(bonusNumber)
+	OutputView().printTickets(tickets)
+	val winningNumbers = InputView().readWinningNumbers()
+	val bonusNumber = InputView().readBonusNumber()
+	val winningResult = LottoResult.calculate(tickets, winningNumbers, bonusNumber)
+	for ((rank, count) in winningResult) {
+		if (count > 0 && rank != Rank.NONE) {
+			println("${rank.getPrizeText()} - $count tickets")
+		}
+	}
 }
 
 // fun main() {
