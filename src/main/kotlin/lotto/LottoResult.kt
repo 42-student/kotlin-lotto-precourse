@@ -1,20 +1,20 @@
 package lotto
 
 enum class Rank(val matches: Int, val needsBonus: Boolean, val prizeMoney: Int) {
-	FIFTH(3, false, 5_000),
-	FOURTH(4, false, 50_000),
-	THIRD(5, false, 1_500_000),
-	SECOND(5, true, 30_000_000),
-	FIRST(6, false, 2_000_000_000),
+	FIFTH(3, false, LottoConstants.PRIZE_AMOUNT[5]!!),
+	FOURTH(4, false, LottoConstants.PRIZE_AMOUNT[4]!!),
+	THIRD(5, false, LottoConstants.PRIZE_AMOUNT[3]!!),
+	SECOND(5, true, LottoConstants.PRIZE_AMOUNT[2]!!),
+	FIRST(6, false, LottoConstants.PRIZE_AMOUNT[1]!!),
 	NONE(0, false, 0);
 
 	fun getPrizeText(): String {
 		return when (this) {
-			FIRST -> "6 Matches (2,000,000,000 KRW)"
-			SECOND -> "5 Matches + Bonus Ball (30,000,000 KRW)"
-			THIRD -> "5 Matches (1,500,000 KRW)"
-			FOURTH -> "4 Matches (50,000 KRW)"
-			FIFTH -> "3 Matches (5,000 KRW)"
+			FIRST -> "6 Matches (${"%,d".format(LottoConstants.PRIZE_AMOUNT[1])} KRW)"
+			SECOND -> "5 Matches + Bonus Ball (${"%,d".format(LottoConstants.PRIZE_AMOUNT[2])} KRW)"
+			THIRD -> "5 Matches (${"%,d".format(LottoConstants.PRIZE_AMOUNT[3])} KRW)"
+			FOURTH -> "4 Matches (${"%,d".format(LottoConstants.PRIZE_AMOUNT[4])} KRW)"
+			FIFTH -> "3 Matches (${"%,d".format(LottoConstants.PRIZE_AMOUNT[5])} KRW)"
 			NONE -> "No Prize"
 		}
 	}
