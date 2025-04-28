@@ -16,16 +16,7 @@ class OutputView {
 				println("${rank.getPrizeText()} – $ticketCount tickets")
 			}
 		}
-		val profitRate = calculateProfitRate(result, purchaseAmount)
+		val profitRate = LottoResult.calculateProfitRate(result, purchaseAmount)
 		println("Total return rate is ${"%.1f".format(profitRate)}%.")
-	}
-
-	private fun calculateProfitRate(result: Map<Rank, Int>, purchaseAmount: Int): Double {
-		var totalWinnings = 0
-		for ((rank, count) in result) {
-			totalWinnings += rank.prizeMoney * count
-		}
-		val profitRate = (totalWinnings.toDouble() / purchaseAmount) * 100
-		return profitRate
 	}
 }

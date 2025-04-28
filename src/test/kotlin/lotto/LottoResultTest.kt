@@ -47,4 +47,13 @@ class LottoResultTest {
 		assertThat(Rank.FIRST.getPrizeText()).isEqualTo("6 Matches (2,000,000,000 KRW)")
 		assertThat(Rank.NONE.getPrizeText()).isEqualTo("No Prize")
 	}
+
+	@Test
+	fun `calculateProfitRate correctly returns profit percentage`() {
+		val result = mapOf(Rank.FIRST to 1, Rank.FIFTH to 2)
+		val purchaseAmount = 6000
+		val profitRate = LottoResult.calculateProfitRate(result, purchaseAmount)
+		val expectedProfitRate = (2_000_010_000.0 / 6000.0) * 100
+		assertThat(profitRate).isEqualTo(expectedProfitRate)
+	}
 }

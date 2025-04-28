@@ -43,4 +43,13 @@ object LottoResult {
 		}
 		return prizeCounts
 	}
+
+	fun calculateProfitRate(result: Map<Rank, Int>, purchaseAmount: Int): Double {
+		var totalWinnings = 0
+		for ((rank, count) in result) {
+			totalWinnings += rank.prizeMoney * count
+		}
+		val profitRate = (totalWinnings.toDouble() / purchaseAmount) * 100
+		return profitRate
+	}
 }
