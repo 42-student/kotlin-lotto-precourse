@@ -10,4 +10,5 @@ object LottoConstants {
 	const val THIRD_PRIZE = 1_500_000
 	const val FOURTH_PRIZE = 50_000
 	const val FIFTH_PRIZE = 5_000
+	const val ERROR_PREFIX = "[ERROR]"
 }

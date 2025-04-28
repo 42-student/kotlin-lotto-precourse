@@ -7,7 +7,7 @@ class InputView {
 		while (true) {
 			try {
 				println("Please enter the purchase amount.")
-				val amount = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("[ERROR] Invalid number.")
+				val amount = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Invalid number.")
 				validatePurchaseAmount(amount)
 				return amount
 			} catch (e: IllegalArgumentException) {
@@ -18,10 +18,10 @@ class InputView {
 
 	private fun validatePurchaseAmount(amount: Int) {
 		if (amount % LottoConstants.TICKET_PRICE != 0) {
-			throw IllegalArgumentException("[ERROR] Amount must be divisible by 1000.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Amount must be divisible by 1000.")
 		}
 		if (amount <= 0) {
-			throw IllegalArgumentException("[ERROR] Amount must be positive.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Amount must be positive.")
 		}
 	}
 
@@ -43,7 +43,7 @@ class InputView {
 		val inputTrim = inputSplit.map { it.trim() }
 		val numbers = mutableListOf<Int>()
 		for (str in inputTrim) {
-			val number = str.toIntOrNull() ?: throw IllegalArgumentException("[ERROR] '$str' is not a valid number.")
+			val number = str.toIntOrNull() ?: throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} '$str' is not a valid number.")
 			numbers.add(number)
 		}
 		return numbers
@@ -51,14 +51,14 @@ class InputView {
 
 	private fun validateWinningNumbers(numbers: List<Int>) {
 		if (numbers.size != LottoConstants.NUMBER_COUNT) {
-			throw IllegalArgumentException("[ERROR] You must enter exactly 6 numbers.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} You must enter exactly 6 numbers.")
 		}
 		if (numbers.distinct().size != LottoConstants.NUMBER_COUNT) {
-			throw IllegalArgumentException("[ERROR] Numbers must be unique.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Numbers must be unique.")
 		}
 		val allNumbersInRange = numbers.all { it in LottoConstants.MIN_NUMBER..LottoConstants.MAX_NUMBER }
 		if (!allNumbersInRange) {
-			throw IllegalArgumentException("[ERROR] Numbers must be in range 1 to 45.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Numbers must be in range 1 to 45.")
 		}
 	}
 
@@ -66,7 +66,7 @@ class InputView {
 		while (true) {
 			try {
 				println("\nPlease enter the bonus number.")
-				val bonusNumber = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("[ERROR] Bonus number is not valid.")
+				val bonusNumber = Console.readLine().toIntOrNull() ?: throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Bonus number is not valid.")
 				validateBonusNumber(bonusNumber, winningNumbers)
 				return bonusNumber
 			} catch (e: IllegalArgumentException) {
@@ -77,10 +77,10 @@ class InputView {
 
 	private fun validateBonusNumber(bonusNumber: Int, winningNumbers: List<Int>) {
 		if (bonusNumber < LottoConstants.MIN_NUMBER || bonusNumber > LottoConstants.MAX_NUMBER) {
-			throw IllegalArgumentException("[ERROR] Bonus number must be in range 1 to 45.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Bonus number must be in range 1 to 45.")
 		}
 		if (bonusNumber in winningNumbers) {
-			throw IllegalArgumentException("[ERROR] Bonus number must differ from the winning numbers.")
+			throw IllegalArgumentException("${LottoConstants.ERROR_PREFIX} Bonus number must differ from the winning numbers.")
 		}
 	}
 }
